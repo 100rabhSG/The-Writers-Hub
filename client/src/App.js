@@ -11,7 +11,7 @@ const App = () =>{
     gapi.load("client:auth2", () => {
         gapi.auth2.init({
           clientId:
-            "*****.apps.googleusercontent.com",
+            "534949040532-vv371ilp714dvm1d999jkupagjp331re.apps.googleusercontent.com",
           plugin_name: "chat",
         });
       });
