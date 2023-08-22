@@ -14,6 +14,7 @@ app.use(bodyParser.json({limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 app.use(cors());
 
+//  '/posts' is the prefix for all the routes in PostRoute
 app.use('/posts', PostRoute);
 app.use('/user', UserRoute);
 

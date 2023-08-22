@@ -1,0 +1,9 @@
+Edit functionality not working
+	
+Make cards in suggestions section
+
+Word limit on message
+
+search by word not working properly
+
+Responsiveness

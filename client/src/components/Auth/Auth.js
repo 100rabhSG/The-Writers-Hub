@@ -15,9 +15,11 @@ const initialState = { firstName: '', lastName: '', email: '', password: '', con
 
 const Auth = () => {
     const classes = useStyles();
+    
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
     const [formData, setFormData] = useState(initialState);
+
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -51,7 +53,7 @@ const Auth = () => {
         try {
             dispatch({ type: 'AUTH', data: { result, token }})
 
-            history.push('/');
+            history.push('/'); // Redirect back to home page after successful login
         } catch (error) {
             console.log(error);
         }

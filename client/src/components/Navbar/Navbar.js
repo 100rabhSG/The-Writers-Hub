@@ -9,7 +9,7 @@ import memories from "../../images/The Writer Hub.jpg";
 const Navbar = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));  // To parse user profile from local storage if user is logged in
     const history = useHistory();
     const location = useLocation();
     
@@ -36,7 +36,7 @@ const Navbar = () => {
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer}>
-                <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">The Writers Hub</Typography>
+                <Typography component={Link} to="/" className={classes.heading} variant="h3" align="center">The Writers Hub</Typography>
                 <img className={classes.image} src={memories} alt="memories" height="80" width="80" />
             </div>
             <Toolbar className={classes.toolbar}>
