@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const url = 'http://localhost:5000/posts';
-const API = axios.create({ baseURL: 'https://writershub-backend.onrender.com/' });
+const url = 'http://localhost:5000';
+const API = axios.create({ baseURL: url });
 
 
 // For auth Middleware

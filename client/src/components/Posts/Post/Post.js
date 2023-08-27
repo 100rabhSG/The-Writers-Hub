@@ -48,7 +48,10 @@ const Post = ({ post, setCurrentId }) => {
                 </div>
                 {( user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
                     <div className={classes.overlay2}>
-                        <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id )}>
+                        <Button style={{ color: 'white' }} size="small" onClick={(e) => {
+                            setCurrentId(post._id )
+                            e.stopPropagation()
+                        }}>
                             <MoreHorizIcon fontSize="default" />
                         </Button>
                     </div>
