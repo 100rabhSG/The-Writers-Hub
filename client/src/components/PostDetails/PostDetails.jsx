@@ -6,6 +6,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { getPost, getPostsBySearch } from '../../actions/posts'
 import useStyles from './styles';
 import CommentSection from './CommentSection';
+import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
 
 const PostDetails = () => {
   const { post, posts, isLoading } = useSelector((state) => state.posts);
@@ -64,13 +65,20 @@ const PostDetails = () => {
           <Typography gutterBottom variant="h5">You might also like:</Typography>
           <Divider />
           <div className={classes.recommendedPosts}>
-            {recommendedPosts.map(({ title, message, name, likes, selectedFile, _id }) => (
+            {recommendedPosts.slice(0, 5).map(({ title, message, name, likes, selectedFile, _id }) => (
               <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => history.push(`/posts/${_id}`)} key={_id}>
+                <img src={selectedFile} alt={title} style={{ width: '200px', height: '300px', objectFit: 'cover' }} />
+                {/* <img src={selectedFile} width="200px" /> */}
                 <Typography gutterBottom variant="h6">{title}</Typography>
-                <Typography gutterBottom variant="subtitle2">{name}</Typography>
-                <Typography gutterBottom variant="subtitle2">{message}</Typography>
-                <Typography gutterBottom variant="subtitle1">Likes: {likes.length}</Typography>
-                <img src={selectedFile} width="200px" />
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Typography gutterBottom variant="subtitle2">{name}</Typography>
+                    <> <ThumbUpAltOutlined fontSize="small" /> &nbsp;{likes.length} </>
+                </div>
+                {/* <Typography gutterBottom variant="subtitle2">{name} <> <ThumbUpAltOutlined fontSize="small" /> &nbsp;{likes.length} </> </Typography> */}
+                {/* <Typography gutterBottom variant="subtitle2">{message}</Typography> */}
+                {/* <> <ThumbUpAltOutlined fontSize="small" /> &nbsp;{likes.length} </> */}
+                {/* <Typography gutterBottom variant="subtitle1">Likes: {likes.length}</Typography> */}
+                <br></br>
               </div>
             ))}
           </div>
