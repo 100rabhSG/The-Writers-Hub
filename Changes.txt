@@ -1,5 +1,3 @@
-Edit functionality not working
-	
 Make cards in suggestions section
 
 Word limit on message
@@ -7,3 +5,17 @@ Word limit on message
 search by word not working properly
 
 Responsiveness
+
+Change password option
+
+Instead of invalid credentials error, its giving axaios error
+
+show error on wrong credentials
+
+In recommended posts section, if there is no recommended post then showing 0
+
+instead of form on side, it will be better if the form pops up.
+
+Deleting a post will push /posts to history which gives error on netlify.
+
+Slow like/delete functionalities 
