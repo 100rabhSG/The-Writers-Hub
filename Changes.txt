@@ -8,14 +8,10 @@ Responsiveness
 
 Change password option
 
-Instead of invalid credentials error, its giving axaios error
-
-show error on wrong credentials
-
 In recommended posts section, if there is no recommended post then showing 0
 
 instead of form on side, it will be better if the form pops up.
 
-Deleting a post will push /posts to history which gives error on netlify.
-
 Slow like/delete functionalities 
+
+Nothing happens if user enter sing-in details of user that doesn't exist. Just shows error in console... Print that in form
