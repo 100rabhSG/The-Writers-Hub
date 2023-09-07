@@ -19,6 +19,7 @@ const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
     const [formData, setFormData] = useState(initialState);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -32,13 +33,23 @@ const Auth = () => {
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (isSignup) {
             dispatch(signup(formData, history));
         } else {
-            dispatch(signin(formData, history));
+            try {
+                const {response} = await dispatch(signin(formData, history));
+
+                console.log(response);
+                if (response?.status === 400) {
+                    setErrorMessage('Invalid credentials. Please try again.');
+                    console.log('hello world');
+                }
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
     
@@ -71,6 +82,15 @@ const Auth = () => {
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography variant="h5">{isSignup ? 'Sign up' : 'Sign in'}</Typography>
+                
+                {errorMessage && (
+                    <div className={classes.errorMessage}>
+                        <Typography variant="body2" color="error">
+                            {errorMessage}
+                        </Typography>
+                    </div>
+                )}
+                
                 <form className={classes.form} onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
                         { isSignup && (

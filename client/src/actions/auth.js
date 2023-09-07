@@ -5,12 +5,14 @@ export const signin = (formData, history) => async (dispatch) => {
     try {
         // log in the user
         const { data } = await api.signin(formData);
-
+// console.log(data);
         dispatch({ type: AUTH, data });
-
+        
         history.push('/');
+        
     } catch (error) {
         console.log(error);
+        return error;
     }
 }
 

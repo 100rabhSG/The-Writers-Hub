@@ -27,4 +27,8 @@ export default makeStyles((theme) => ({
   googleButton: {
     marginBottom: theme.spacing(2),
   },
+  errorMessage: {
+    margin: '10px 0',
+    textAlign: 'center',
+  },
 }));
